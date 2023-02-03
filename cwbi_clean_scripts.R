@@ -7,7 +7,7 @@ p_load(tidyverse, sf, patchwork, raster)
 ### Get the data ###
 ####################
 
-CWBI <- readRDS("cwbi_01152023.rds") %>% dplyr::filter(!CWBI>5) # Remove outlier
+CWBI <- readRDS("cwbi_clean_data.rds") %>% dplyr::filter(!CWBI>5) # Remove outlier
 CWBI <- CWBI %>% st_as_sf()
 CWBI <- st_transform(CWBI, crs = 5070)
 counties <- readRDS("coterm_cty_sf.RDS")
