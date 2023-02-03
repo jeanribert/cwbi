@@ -1,0 +1,64 @@
+---
+title: "Data description for CWBI"
+author: "Jean R. Francois"
+date: "2023-02-02"
+output: html_document
+---
+
+```{r setup, include=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(pacman)
+p_load(tidyverse, kableExtra)
+```
+
+```{r echo=FALSE}
+Variable <- c('job_or_gdp',
+              'gdp_only',
+              'job_only',
+              'Median_Age',
+              'Perc_Snap',
+              'Perc_Uninsur',
+              'Perc_Vacant',
+              'Perc_Unemp',
+              'Perc_Less_HighS',
+              'Perc_Lack_Plumb',
+              'Net_Mig_Rate',
+              'Perc_Crowded',
+              'Crime_Rate',
+              'Perc_Unenrol',
+              'Rec_Ind_Rate',
+              'PC1, PC2, & PC3',
+              'CWBI',
+              'CWBI_Levels',
+              'Pop2019',
+              'Perc_White',
+              'Perc_NonWhite')
+
+Description <- c('Combined AEC indicator that classifies counties as either AEC or non-AEC based on both GDP and employment data',
+                 'Classification of counties as either AEC or non-AEC using only GDP data',
+                 'Classification of counties as either AEC or non-AEC using only employment data',
+                 'Median age of the population of the county',
+                 'Percent of SNAP households (total count of households participating in cash public assistance or Food Stamps divided by total count of family households (not account for the non family households)',
+                 'Percent of the population without health insurance coverage',
+                 'Percent of vacant properties',
+                 'Percent of total count of civilian labor force unemployed in the total count of civilian labor force',
+                 'Percentage of the population 25 years and over with no high school degree',
+                 'Percent of occupied housing units lacking plumbing facilities',
+                 'Net migration per 1000 population',
+                 'Percent of housing units with more than one occupant per room',
+                 'Serious crimes known to police per 1,000 individuals',
+                 'Percent of the population that is not enrolled in school in the total estimate of population 3 years and over',
+                 'Arts, Entertainment, and Recreation sector. This variable is the rate of these establishments for 1000 population',
+                 'Score of the first, second, and the third components',
+                 'Community well-being index computed from summing the component scores',
+                 'Categories of community well-being defined based on standard deviations from the mean',
+                 'Total population of the county as of 2019',
+                 'Percent of White population',
+                 'Percent of non-White population')
+
+tbl<-as.data.frame(cbind(`Variable`, `Description`)) 
+
+tbl %>% kbl(caption = 'Description of the variables in the cwbi dataset') %>%
+  kable_classic(full_width = T, html_font = "Cambria")
+```
